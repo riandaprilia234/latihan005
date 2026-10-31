@@ -1,0 +1,22 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\TransactionController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/items', [ItemController::class, 'index']);
+Route::post('/items', [ItemController::class, 'store']);
+Route::put('/items', [ItemController::class, 'update']);
+Route::delete('/items', [ItemController::class, 'destroy']);
+
+
+Route::get('/transactions', [TransactionController::class, 'index']);
+Route::get('/transactions/create', [TransactionController::class, 'create']);
+Route::get('/transactions/rekap', [TransactionController::class, 'rekap']);
+Route::get('/transactions/rekap-detail', [TransactionController::class, 'rekapDetail']);
+Route::get('/transactions/show/{id}', [TransactionController::class, 'show']);
+Route::post('/transactions', [TransactionController::class, 'store']);
